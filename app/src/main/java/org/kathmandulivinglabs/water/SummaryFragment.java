@@ -1,6 +1,7 @@
 package org.kathmandulivinglabs.water;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +32,12 @@ public class SummaryFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        llCityNum = (LinearLayout) getActivity().findViewById(R.id.ll_no_of_cities);
-        llPointsNum = (LinearLayout) getActivity().findViewById(R.id.ll_no_of_testpoint);
-        llSchoolNum = (LinearLayout) getActivity().findViewById(R.id.ll_no_of_schools);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+        llCityNum = (LinearLayout) view.findViewById(R.id.ll_no_of_cities);
+        llPointsNum = (LinearLayout) view.findViewById(R.id.ll_no_of_testpoint);
+        llSchoolNum = (LinearLayout) view.findViewById(R.id.ll_no_of_schools);
 
         if (isCompare) {
             llCityNum.setVisibility(View.GONE);
@@ -44,47 +46,47 @@ public class SummaryFragment extends Fragment {
         }
 
 
-        phSeekBar = (CustomSeekBar) getActivity().findViewById(R.id.seek_bar_ph);
+        phSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_ph);
         initPhSeekBar();
         phSeekBar.setProgress((int) ((ph / 14) * 100));
         phSeekBar.setEnabled(false);
 
-        doSeekBar = (CustomSeekBar) getActivity().findViewById(R.id.seek_bar_dissolved_oxygen);
+        doSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_dissolved_oxygen);
         initDOSeekBar();
         doSeekBar.setProgress((int) ((dissolved_oxygen / 18) * 100));
         doSeekBar.setEnabled(false);
 
-        tempSeekBar = (CustomSeekBar) getActivity().findViewById(R.id.seek_bar_temperature);
+        tempSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_temperature);
         initTempSeekBar();
         tempSeekBar.setProgress((int) temperature);
         tempSeekBar.setEnabled(false);
 
-        turbSeekBar = (CustomSeekBar) getActivity().findViewById(R.id.seek_bar_turbidity);
+        turbSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_turbidity);
         initTurbSeekBar();
         turbSeekBar.setProgress((int) turbidity * 10);
         turbSeekBar.setEnabled(false);
 
-        bodSeekBar = (CustomSeekBar) getActivity().findViewById(R.id.seek_bar_bod);
+        bodSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_bod);
         initBODSeekBar();
         bodSeekBar.setProgress((int) biochemical_oxygen_demand * 10);
         bodSeekBar.setEnabled(false);
 
-        nitrateSeekBar = (CustomSeekBar) getActivity().findViewById(R.id.seek_bar_nitrate);
+        nitrateSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_nitrate);
         initNitrateSeekBar();
         nitrateSeekBar.setProgress((int) nitrate * 10);
         nitrateSeekBar.setEnabled(false);
 
-        phospateSeekBar = (CustomSeekBar) getActivity().findViewById(R.id.seek_bar_phosphate);
+        phospateSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_phosphate);
         initPhosphateSeekBar();
         phospateSeekBar.setProgress((int) phosphate * 10);
         phospateSeekBar.setEnabled(false);
 
 
-        txtCityNum = (TextView) getActivity().findViewById(R.id.txt_no_of_cities);
+        txtCityNum = (TextView) view.findViewById(R.id.txt_no_of_cities);
         txtCityNum.setText(String.valueOf(num_cities));
-        txtSchoolNum = (TextView) getActivity().findViewById(R.id.txt_no_of_schools);
+        txtSchoolNum = (TextView) view.findViewById(R.id.txt_no_of_schools);
         txtSchoolNum.setText(String.valueOf(num_schools));
-        txtPointsNum = (TextView) getActivity().findViewById(R.id.txt_no_of_testpoint);
+        txtPointsNum = (TextView) view.findViewById(R.id.txt_no_of_testpoint);
         txtPointsNum.setText(String.valueOf(num_testpoints));
 
 

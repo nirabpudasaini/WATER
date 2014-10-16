@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -20,14 +22,12 @@ public class CompareActivity extends ActionBarActivity {
     private List<City> cities1, cities2;
     private List<String> country_names, city_names1, city_names2;
     private Boolean isCompare = true;
-    private Bundle args;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
-        args = new Bundle();
         setContentView(R.layout.activity_compare);
         country1 = (Spinner) findViewById(R.id.spinner_country1);
         country2 = (Spinner) findViewById(R.id.spinner_country2);
@@ -43,26 +43,11 @@ public class CompareActivity extends ActionBarActivity {
         ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, country_names);
 
 
-        SummaryFragment summaryFragment1 = new SummaryFragment();
-        prepareCountryBundle(countries.get(0));
-        summaryFragment1.setArguments(args);
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.frame_compare_summary, summaryFragment1, "Summary Fragment 1");
-        fragmentTransaction.commit();
-
-
-        SummaryFragment summaryFragment2 = new SummaryFragment();
-        prepareCountryBundle(countries.get(0));
-        summaryFragment2.setArguments(args);
-        FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction2.add(R.id.frame_compare_summary2, summaryFragment2, "Summary Fragment 2");
-        fragmentTransaction2.commit();
-
 
         country1.setAdapter(countryAdapter);
         country2.setAdapter(countryAdapter);
 
-   /*     country1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        country1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
@@ -136,7 +121,28 @@ public class CompareActivity extends ActionBarActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
-        });*/
+        });
+
+        city2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
+
+                if (pos > 0) {
+                    SummaryFragment summaryFragment1 = new SummaryFragment();
+                    Bundle args = prepareCityBundle(cities2.get(pos - 1));
+                    summaryFragment1.setArguments(args);
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frame_compare_summary, summaryFragment1, "Summary Fragment 1");
+                    fragmentTransaction.commit();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
     }
@@ -163,8 +169,8 @@ public class CompareActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void prepareCountryBundle(Country country) {
-        args.clear();
+    private Bundle prepareCountryBundle(Country country) {
+        Bundle args = new Bundle();
         args.putBoolean("ISCOMPARE", isCompare);
         args.putString(Utils.NAME, country.getName());
         args.putDouble(Utils.PH, country.getpH());
@@ -182,10 +188,12 @@ public class CompareActivity extends ActionBarActivity {
         args.putInt(Utils.MACROINVERTEBRATES, country.getMacroinvertebrates_present());
         args.putInt(Utils.MACROINVERTEBRATES_ABSENT, country.getMacroinvertebrates_absent());
 
+        return args;
+
     }
 
-    private void prepareCityBundle(City city) {
-        args.clear();
+    private Bundle prepareCityBundle(City city) {
+        Bundle args = new Bundle();
         args.putBoolean("ISCOMPARE", isCompare);
         args.putString(Utils.NAME, city.getName());
         args.putString(Utils.LOCATION, city.getLocation().toString());
@@ -204,6 +212,6 @@ public class CompareActivity extends ActionBarActivity {
         args.putInt(Utils.MACROINVERTEBRATES, city.getMacroinvertebrates_present());
         args.putInt(Utils.MACROINVERTEBRATES_ABSENT, city.getMacroinvertebrates_absent());
 
-
+        return args;
     }
 }
