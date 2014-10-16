@@ -1,0 +1,41 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.kathmandulivinglabs.water.InfoFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/water"
+                android:textAllCaps="true"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="This is Data Vizulisation app for WATER Project. The data was collected by students in different countries using mobile phones and a water testing kit. \n\n To browse the collected data please use the menu in the right side of the screen. Once you go to the maps you can click on individual cities or test point to get the data. You can also directly click get summary from the menu to get the summary for countries or cities. \n\n You can also click on the Compare button to compare data between two different country or cities. "
+                android:textSize="18dp" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</FrameLayout>

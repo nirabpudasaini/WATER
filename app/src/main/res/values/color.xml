@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="red">#FA5858</color>
+    <color name="green">#74DF00</color>
+    <color name="blue">#58ACFA</color>
+    <color name="yellow">#ffdfd200</color>
+    <color name="organge">#FCA817</color>
+    <color name="grey">#6E6E6E</color>
+    <color name="low_oxygen">#333</color>
+    <color name="goodmin_oxygen">#aa6</color>
+    <color name="medium_oxygen">#99f</color>
+    <color name="high_oxygen">#aaf</color>
+    <color name="cold">#0000aa</color>
+    <color name="cool">#9999ff</color>
+    <color name="avg_temp">#ffff99</color>
+    <color name="warm">#ffff33</color>
+    <color name="hot">#ff0022</color>
+    <color name="min">#b4b4ff</color>
+    <color name="good_min">#b4ffb4</color>
+    <color name="good_max">#ffb4b4</color>
+    <color name="max">#643219</color>
+
+
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WATER</string>
+    <string name="action_compare">Compare</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="participant_cities">Participant Cities</string>
+    <string name="participant_schools">Participant Schools</string>
+    <string name="water_sources_surveyed">Water Sources Surveyed</string>
+    <string name="ph">Ph</string>
+    <string name="dissolved_oxygen">Dissolved Oxygen</string>
+    <string name="temperature">Temperature</string>
+    <string name="turbidity">Turbidity</string>
+    <string name="biochemical_oxygen_demand">Biochemical Oxygen Demand</string>
+    <string name="nitrate">Nitrate</string>
+    <string name="phosphate">Phosphate</string>
+    <string name="coliform_bacteria">Coliform Bacteria</string>
+    <string name="benthic_macroinvertebrates">Benthic Macroinvertebrates</string>
+    <string name="title_activity_compare">Compare</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_main">Go Back</string>
+    <string name="water">water</string>
+
+</resources>
