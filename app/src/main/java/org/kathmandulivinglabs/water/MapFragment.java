@@ -150,7 +150,7 @@ public class MapFragment extends Fragment {
     public void preformCityAction() {
         testPoints = Utils.getTestPoints(getActivity(), strName);
         LatLng cityLatLng = stringToLatLng(strCityLocation);
-        centerMapAndZoom(cityLatLng, 12);
+        centerMapAndZoom(cityLatLng, 14);
         for (int i = 0; i < testPoints.size(); i++) {
             TestPoint testPoint = testPoints.get(i);
             Log.i("TestPointCoodrinates", testPoint.getLocation().toString());

@@ -17,8 +17,9 @@ public class SummaryFragment extends Fragment {
     private int num_cities, num_schools, num_testpoints;
     private double ph, dissolved_oxygen, temperature, turbidity, biochemical_oxygen_demand, nitrate, phosphate;
     private CustomSeekBar phSeekBar, doSeekBar, tempSeekBar, turbSeekBar, bodSeekBar, nitrateSeekBar, phospateSeekBar;
-    private TextView txtCityNum, txtSchoolNum, txtPointsNum;
+    private TextView txtCityNum, txtSchoolNum, txtPointsNum, txtName;
     private LinearLayout llCityNum, llSchoolNum, llPointsNum;
+    private String name;
     private boolean isCompare;
 
 
@@ -81,7 +82,8 @@ public class SummaryFragment extends Fragment {
         phospateSeekBar.setProgress((int) phosphate * 10);
         phospateSeekBar.setEnabled(false);
 
-
+        txtName = (TextView) view.findViewById(R.id.txt_name_summary);
+        txtName.setText(name);
         txtCityNum = (TextView) view.findViewById(R.id.txt_no_of_cities);
         txtCityNum.setText(String.valueOf(num_cities));
         txtSchoolNum = (TextView) view.findViewById(R.id.txt_no_of_schools);
@@ -320,6 +322,7 @@ public class SummaryFragment extends Fragment {
 
     private void getDataFromBundle(Bundle args) {
         isCompare = args.getBoolean("ISCOMPARE");
+        name = args.getString(Utils.NAME);
         num_cities = args.getInt(Utils.NUMBER_CITIES);
         num_schools = args.getInt(Utils.NUMBER_SCHOOL);
         num_testpoints = args.getInt(Utils.NUMBER_TESTPOINT);

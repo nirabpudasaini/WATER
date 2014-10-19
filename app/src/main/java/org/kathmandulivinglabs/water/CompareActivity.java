@@ -133,7 +133,7 @@ public class CompareActivity extends ActionBarActivity {
                     Bundle args = prepareCityBundle(cities2.get(pos - 1));
                     summaryFragment1.setArguments(args);
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.frame_compare_summary, summaryFragment1, "Summary Fragment 1");
+                    fragmentTransaction.replace(R.id.frame_compare_summary2, summaryFragment1, "Summary Fragment 1");
                     fragmentTransaction.commit();
                 }
             }
