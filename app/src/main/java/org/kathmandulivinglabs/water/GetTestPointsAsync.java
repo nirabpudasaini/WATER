@@ -2,6 +2,7 @@ package org.kathmandulivinglabs.water;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -19,7 +20,6 @@ import java.util.List;
 
 public class GetTestPointsAsync extends AsyncTask<String, Integer, List<TestPoint>> {
 
-    private String DEPLOYMENT = Utils.DEPLOYMENT_URL;
     private Context mContext;
     private Dialog mProgressDialog;
 
@@ -56,7 +56,7 @@ public class GetTestPointsAsync extends AsyncTask<String, Integer, List<TestPoin
             Log.i("ASyncTask", "Making HTTP GET Connection");
             String city = strings[0];
 
-            URL url = new URL(DEPLOYMENT + "?function=getByLocation&type=city&location=" + city);
+            URL url = new URL(Utils.DEPLOYMENT_URL + "?function=getByLocation&type=city&location=" + Uri.encode(city));
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(15000 /* milliseconds */);

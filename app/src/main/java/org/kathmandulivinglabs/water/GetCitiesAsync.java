@@ -2,6 +2,7 @@ package org.kathmandulivinglabs.water;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -19,7 +20,6 @@ import java.util.List;
 
 public class GetCitiesAsync extends AsyncTask<String, Integer, List<City>> {
 
-    private String DEPLOYMENT = Utils.DEPLOYMENT_URL;
     private Context mContext;
     private Dialog mProgressDialog;
 
@@ -57,7 +57,7 @@ public class GetCitiesAsync extends AsyncTask<String, Integer, List<City>> {
 
             Log.i("ASyncTask", "Making HTTP GET Connection");
 
-            URL url = new URL(DEPLOYMENT + "?function=getMapFeatures&type=cities&country=" + country);
+            URL url = new URL(Utils.DEPLOYMENT_URL + "?function=getMapFeatures&type=cities&country=" + Uri.encode(country));
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(15000 /* milliseconds */);
@@ -77,11 +77,10 @@ public class GetCitiesAsync extends AsyncTask<String, Integer, List<City>> {
             return cities;
         }
 
-        for (int i = 0; i < cities.size(); i++) {
+        for (City city : cities) {
             try {
-                City city = cities.get(i);
                 String cityName = city.getName();
-                URL url = new URL(DEPLOYMENT + "?function=getSummary&type=city&city=" + cityName + "&country=" + country);
+                URL url = new URL(Utils.DEPLOYMENT_URL + "?function=getSummary&type=city&city=" + Uri.encode(cityName) + "&country=" + Uri.encode(country));
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(10000 /* milliseconds */);
                 conn.setConnectTimeout(15000 /* milliseconds */);
