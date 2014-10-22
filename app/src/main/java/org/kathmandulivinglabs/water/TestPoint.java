@@ -76,10 +76,6 @@ public class TestPoint {
         return location;
     }
 
-    public void setLocation(LatLng location) {
-        this.location = location;
-    }
-
     public Double getpH() {
         return pH;
     }

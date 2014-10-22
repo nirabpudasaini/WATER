@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,9 +18,7 @@ public class SummaryFragment extends Fragment {
     private int num_cities, num_schools, num_testpoints;
     private double ph, dissolved_oxygen, temperature, turbidity, biochemical_oxygen_demand, nitrate, phosphate;
     private CustomSeekBar phSeekBar, doSeekBar, tempSeekBar, turbSeekBar, bodSeekBar, nitrateSeekBar, phospateSeekBar;
-    private TextView txtCityNum, txtSchoolNum, txtPointsNum, txtName;
-    private LinearLayout llCityNum, llSchoolNum, llPointsNum;
-    private String name;
+    private String name, description, school_name, photo_id;
     private boolean isCompare;
 
 
@@ -36,16 +35,31 @@ public class SummaryFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+        LinearLayout llCityNum, llSchoolNum, llPointsNum, llNameBlock, llDescription, llSchoolName, llSurveyorName, llPhoto;
+        llDescription = (LinearLayout) view.findViewById(R.id.ll_description);
+        llSchoolName = (LinearLayout) view.findViewById(R.id.ll_school_name);
+        llSurveyorName = (LinearLayout) view.findViewById(R.id.ll_surveyor_name);
+        llNameBlock = (LinearLayout) view.findViewById(R.id.ll_name_summary);
         llCityNum = (LinearLayout) view.findViewById(R.id.ll_no_of_cities);
         llPointsNum = (LinearLayout) view.findViewById(R.id.ll_no_of_testpoint);
         llSchoolNum = (LinearLayout) view.findViewById(R.id.ll_no_of_schools);
+        llPhoto = (LinearLayout) view.findViewById(R.id.ll_photo);
 
-        if (isCompare) {
+        if (isCompare || photo_id != null) {
             llCityNum.setVisibility(View.GONE);
             llSchoolNum.setVisibility(View.GONE);
             llPointsNum.setVisibility(View.GONE);
         }
 
+        if (photo_id != null) {
+            llNameBlock.setVisibility(View.GONE);
+            llDescription.setVisibility(View.VISIBLE);
+            llSchoolName.setVisibility(View.VISIBLE);
+            llSurveyorName.setVisibility(View.VISIBLE);
+            llPhoto.setVisibility(View.VISIBLE);
+            ImageView imageView = (ImageView) view.findViewById(R.id.photo);
+            new GetImageFromUrlAsync(imageView, "medium").execute(photo_id);
+        }
 
         phSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_ph);
         initPhSeekBar();
@@ -82,6 +96,13 @@ public class SummaryFragment extends Fragment {
         phospateSeekBar.setProgress((int) phosphate * 10);
         phospateSeekBar.setEnabled(false);
 
+        TextView txtCityNum, txtSchoolNum, txtPointsNum, txtName, txtDescription, txtSchoolName, txtSurveyorName;
+        txtDescription = (TextView) view.findViewById(R.id.txt_description);
+        txtDescription.setText(description);
+        txtSchoolName = (TextView) view.findViewById(R.id.txt_school_name);
+        txtSchoolName.setText(school_name);
+        txtSurveyorName = (TextView) view.findViewById(R.id.txt_surveyor_name);
+        txtSurveyorName.setText(name);
         txtName = (TextView) view.findViewById(R.id.txt_name_summary);
         txtName.setText(name);
         txtCityNum = (TextView) view.findViewById(R.id.txt_no_of_cities);
@@ -333,6 +354,9 @@ public class SummaryFragment extends Fragment {
         biochemical_oxygen_demand = args.getDouble(Utils.BIOCHEMICAL_OXYGEN_DEMAND);
         nitrate = args.getDouble(Utils.NITRATE);
         phosphate = args.getDouble(Utils.PHOSPHATE);
+        photo_id = args.getString(Utils.PHOTO);
+        school_name = args.getString(Utils.SCHOOL);
+        description = args.getString(Utils.DESCRIPTION);
 
     }
 }

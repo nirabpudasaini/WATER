@@ -21,5 +21,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_main">Go Back</string>
     <string name="water">water</string>
+    <string name="surveyed_by">Surveyed By</string>
+    <string name="school_name">Name of the School</string>
+    <string name="description">Description</string>
 
 </resources>

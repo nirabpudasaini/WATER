@@ -32,11 +32,11 @@ public class MainActivity extends ActionBarActivity implements FragmentCommunica
         manager = getSupportFragmentManager();
 
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.content_frame, clFragment, "CountryListFragment");
+        transaction.replace(R.id.content_frame, clFragment, "CountryListFragment");
         transaction.commit();
 
         FragmentTransaction transaction1 = manager.beginTransaction();
-        transaction1.add(R.id.content_frame_another, new InfoFragment(), "InfoFragment");
+        transaction1.replace(R.id.content_frame_another, new InfoFragment(), "InfoFragment");
         transaction1.commit();
 
     }
@@ -98,7 +98,11 @@ public class MainActivity extends ActionBarActivity implements FragmentCommunica
         } else if (obj instanceof City) {
             City city = (City) obj;
             args = prepareCityBundle(city);
+        } else if (obj instanceof TestPoint) {
+            TestPoint testPoint = (TestPoint) obj;
+            args = prepareTestPointBundle(testPoint);
         }
+
         SummaryFragment newFragment = new SummaryFragment();
 
         newFragment.setArguments(args);
@@ -174,6 +178,25 @@ public class MainActivity extends ActionBarActivity implements FragmentCommunica
 
         return args;
 
+    }
+
+    private Bundle prepareTestPointBundle(TestPoint tp) {
+
+        Bundle args = new Bundle();
+        args.putString(Utils.LOCATION, tp.getLocation().toString());
+        args.putString(Utils.DESCRIPTION, tp.getDescription());
+        args.putString(Utils.SCHOOL, tp.getSchool());
+        args.putString(Utils.PHOTO, tp.getPhoto_url());
+        args.putString(Utils.NAME, tp.getSurveyor_name());
+        args.putDouble(Utils.PH, tp.getpH());
+        args.putDouble(Utils.TEMPERATURE, tp.getTemperature());
+        args.putDouble(Utils.DISSOLVED_OXYGEN, tp.getDissolved_oxygen());
+        args.putDouble(Utils.TURBIDITY, tp.getTurbidity());
+        args.putDouble(Utils.BIOCHEMICAL_OXYGEN_DEMAND, tp.getBiochemical_oxygen_demand());
+        args.putDouble(Utils.NITRATE, tp.getNitrate());
+        args.putDouble(Utils.PHOSPHATE, tp.getPhosphate());
+
+        return args;
     }
 
 }

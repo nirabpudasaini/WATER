@@ -1,6 +1,5 @@
 package org.kathmandulivinglabs.water;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
 
@@ -11,11 +10,11 @@ import java.util.concurrent.ExecutionException;
 public class Utils {
 
     public static final String DEPLOYMENT_URL = "http://www.kathmandulivinglabs.org/wash-mock/api.php";
+    public static final String FORMHUB_IMAGE_URL = "https://formhub.org/attachment/";
     public static final String NAME = "name", LOCATION = "location", PH = "ph", DISSOLVED_OXYGEN = "dissolved_oxygen", TEMPERATURE = "temperature",
             TURBIDITY = "turbidity", BIOCHEMICAL_OXYGEN_DEMAND = "biochemical_oxygen_demand", NITRATE = "nitrate", PHOSPHATE = "phosphate",
             NUMBER_SCHOOL = "school_number", NUMBER_CITIES = "cities_number", NUMBER_TESTPOINT = "testpoint_number", COLIFORM = "coliform",
-            COLIFORM_ABSENT = "coliform_absent", MACROINVERTEBRATES = "macroinvertebrates", MACROINVERTEBRATES_ABSENT = "macroinvertebrates_absent";
-    private Dialog mProgressDialog;
+            COLIFORM_ABSENT = "coliform_absent", MACROINVERTEBRATES = "macroinvertebrates", MACROINVERTEBRATES_ABSENT = "macroinvertebrates_absent", DESCRIPTION = "description", PHOTO = "photo_url", SCHOOL = "school_name";
 
 
     public Utils() {
