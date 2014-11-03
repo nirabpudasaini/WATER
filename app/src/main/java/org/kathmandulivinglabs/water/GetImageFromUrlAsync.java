@@ -20,7 +20,7 @@ public class GetImageFromUrlAsync extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected Bitmap doInBackground(String... photo) {
         String photoId = photo[0];
-        String url = Utils.FORMHUB_IMAGE_URL + mSize + "?media_file=nirabpudasaini/attachments/" + photoId;
+        String url = Utils.FORMHUB_IMAGE_URL + mSize + "?media_file=ktmlabs/attachments/" + photoId;
         Bitmap image = null;
 
         try {
