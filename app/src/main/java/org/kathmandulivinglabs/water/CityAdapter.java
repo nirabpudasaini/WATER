@@ -74,7 +74,7 @@ public class CityAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
         TextView tv = new TextView(mContext);
-        tv.setText(parentList.get(i));
+        tv.setText(Utils.nameFormater(parentList.get(i)));
         int dpi = mContext.getResources().getDisplayMetrics().densityDpi;
         tv.setPadding(dpi / 6, dpi / 40, dpi / 8, dpi / 80);
         tv.setTextSize(25);
@@ -84,7 +84,7 @@ public class CityAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int i, int i2, boolean b, View view, ViewGroup viewGroup) {
         TextView tv = new TextView(mContext);
-        tv.setText(childList.get(i).get(i2));
+        tv.setText(Utils.nameFormater(childList.get(i).get(i2)));
         int dpi = mContext.getResources().getDisplayMetrics().densityDpi;
         tv.setPadding(dpi / 5, dpi / 80, dpi / 8, dpi / 80);
         tv.setTextSize(20);

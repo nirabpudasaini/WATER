@@ -72,55 +72,55 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_school_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:visibility="gone">
+        <!--  <LinearLayout
+              android:id="@+id/ll_school_name"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="10dp"
+              android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:text="@string/school_name"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:paddingLeft="12dp"
+                  android:paddingRight="12dp"
+                  android:text="@string/school_name"
+                  android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView
-                android:id="@+id/txt_school_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="18dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </LinearLayout>
+              <TextView
+                  android:id="@+id/txt_school_name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingLeft="18dp"
+                  android:textAppearance="?android:attr/textAppearanceSmall" />
+          </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_surveyor_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:visibility="gone">
+          <LinearLayout
+              android:id="@+id/ll_surveyor_name"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="10dp"
+              android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:text="@string/surveyed_by"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:paddingLeft="12dp"
+                  android:paddingRight="12dp"
+                  android:text="@string/surveyed_by"
+                  android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView
-                android:id="@+id/txt_surveyor_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="18dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </LinearLayout>
+              <TextView
+                  android:id="@+id/txt_surveyor_name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingLeft="18dp"
+                  android:textAppearance="?android:attr/textAppearanceSmall" />
+          </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/ll_no_of_cities"
@@ -252,34 +252,34 @@
                 android:thumbOffset="12dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+        <!--      <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:padding="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:text="@string/temperature"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="center"
+                      android:paddingLeft="12dp"
+                      android:paddingRight="12dp"
+                      android:text="@string/temperature"
+                      android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <org.kathmandulivinglabs.water.CustomSeekBar
-                android:id="@+id/seek_bar_temperature"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:max="100"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:progress="0"
-                android:progressDrawable="@android:color/transparent"
-                android:thumb="@drawable/seek_thumb_normal"
-                android:thumbOffset="12dp" />
-        </LinearLayout>
+                  <org.kathmandulivinglabs.water.CustomSeekBar
+                      android:id="@+id/seek_bar_temperature"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="10dp"
+                      android:max="100"
+                      android:paddingLeft="12dp"
+                      android:paddingRight="12dp"
+                      android:progress="0"
+                      android:progressDrawable="@android:color/transparent"
+                      android:thumb="@drawable/seek_thumb_normal"
+                      android:thumbOffset="12dp" />
+              </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"

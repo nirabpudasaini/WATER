@@ -38,7 +38,7 @@ public class CompareActivity extends ActionBarActivity {
         city_names1 = new ArrayList<String>();
         city_names2 = new ArrayList<String>();
         for (Country country : countries) {
-            country_names.add(country.getName());
+            country_names.add(Utils.nameFormater(country.getName()));
         }
         ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, country_names);
 
@@ -62,7 +62,7 @@ public class CompareActivity extends ActionBarActivity {
                 city_names1.clear();
                 city_names1.add("All");
                 for (City city : cities1){
-                    city_names1.add(city.getName());
+                    city_names1.add(Utils.nameFormater(city.getName()));
                 }
                 ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(CompareActivity.this,android.R.layout.simple_spinner_item, city_names1);
                 city1.setAdapter(cityAdapter);
@@ -90,7 +90,7 @@ public class CompareActivity extends ActionBarActivity {
                 city_names2.clear();
                 city_names2.add("All");
                 for (City city : cities2){
-                    city_names2.add(city.getName());
+                    city_names2.add(Utils.nameFormater(city.getName()));
                 }
                 ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(CompareActivity.this,android.R.layout.simple_spinner_item, city_names2);
                 city2.setAdapter(cityAdapter);
@@ -172,7 +172,7 @@ public class CompareActivity extends ActionBarActivity {
     private Bundle prepareCountryBundle(Country country) {
         Bundle args = new Bundle();
         args.putBoolean("ISCOMPARE", isCompare);
-        args.putString(Utils.NAME, country.getName());
+        args.putString(Utils.NAME, Utils.nameFormater(country.getName()));
         args.putDouble(Utils.PH, country.getpH());
         args.putDouble(Utils.TEMPERATURE, country.getTemperature());
         args.putInt(Utils.NUMBER_TESTPOINT, country.getNumber_testpoint());
@@ -195,7 +195,7 @@ public class CompareActivity extends ActionBarActivity {
     private Bundle prepareCityBundle(City city) {
         Bundle args = new Bundle();
         args.putBoolean("ISCOMPARE", isCompare);
-        args.putString(Utils.NAME, city.getName());
+        args.putString(Utils.NAME, Utils.nameFormater(city.getName()));
         args.putString(Utils.LOCATION, city.getLocation().toString());
         args.putDouble(Utils.PH, city.getpH());
         args.putDouble(Utils.TEMPERATURE, city.getTemperature());

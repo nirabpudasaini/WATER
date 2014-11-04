@@ -135,7 +135,7 @@ public class MainActivity extends ActionBarActivity implements FragmentCommunica
 
     private Bundle prepareCountryBundle(Country country) {
         Bundle args = new Bundle();
-        args.putString(Utils.NAME, country.getName());
+        args.putString(Utils.NAME, Utils.nameFormater(country.getName()));
         args.putDouble(Utils.PH, country.getpH());
         args.putDouble(Utils.TEMPERATURE, country.getTemperature());
         args.putInt(Utils.NUMBER_TESTPOINT, country.getNumber_testpoint());
@@ -158,7 +158,7 @@ public class MainActivity extends ActionBarActivity implements FragmentCommunica
 
     private Bundle prepareCityBundle(City city) {
         Bundle args = new Bundle();
-        args.putString(Utils.NAME, city.getName());
+        args.putString(Utils.NAME, Utils.nameFormater(city.getName()));
         args.putString(Utils.LOCATION, city.getLocation().toString());
         args.putDouble(Utils.PH, city.getpH());
         args.putDouble(Utils.TEMPERATURE, city.getTemperature());

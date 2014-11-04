@@ -37,8 +37,8 @@ public class SummaryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         LinearLayout llCityNum, llSchoolNum, llPointsNum, llNameBlock, llDescription, llSchoolName, llSurveyorName, llPhoto;
         llDescription = (LinearLayout) view.findViewById(R.id.ll_description);
-        llSchoolName = (LinearLayout) view.findViewById(R.id.ll_school_name);
-        llSurveyorName = (LinearLayout) view.findViewById(R.id.ll_surveyor_name);
+/*        llSchoolName = (LinearLayout) view.findViewById(R.id.ll_school_name);
+        llSurveyorName = (LinearLayout) view.findViewById(R.id.ll_surveyor_name);*/
         llNameBlock = (LinearLayout) view.findViewById(R.id.ll_name_summary);
         llCityNum = (LinearLayout) view.findViewById(R.id.ll_no_of_cities);
         llPointsNum = (LinearLayout) view.findViewById(R.id.ll_no_of_testpoint);
@@ -54,8 +54,8 @@ public class SummaryFragment extends Fragment {
         if (photo_id != null) {
             llNameBlock.setVisibility(View.GONE);
             llDescription.setVisibility(View.VISIBLE);
-            llSchoolName.setVisibility(View.VISIBLE);
-            llSurveyorName.setVisibility(View.VISIBLE);
+/*            llSchoolName.setVisibility(View.VISIBLE);
+            llSurveyorName.setVisibility(View.VISIBLE);*/
             llPhoto.setVisibility(View.VISIBLE);
             ImageView imageView = (ImageView) view.findViewById(R.id.photo);
             new GetImageFromUrlAsync(imageView, "medium").execute(photo_id);
@@ -71,10 +71,10 @@ public class SummaryFragment extends Fragment {
         doSeekBar.setProgress((int) ((dissolved_oxygen / 18) * 100));
         doSeekBar.setEnabled(false);
 
-        tempSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_temperature);
+/*        tempSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_temperature);
         initTempSeekBar();
         tempSeekBar.setProgress((int) temperature);
-        tempSeekBar.setEnabled(false);
+        tempSeekBar.setEnabled(false);*/
 
         turbSeekBar = (CustomSeekBar) view.findViewById(R.id.seek_bar_turbidity);
         initTurbSeekBar();
@@ -99,10 +99,10 @@ public class SummaryFragment extends Fragment {
         TextView txtCityNum, txtSchoolNum, txtPointsNum, txtName, txtDescription, txtSchoolName, txtSurveyorName;
         txtDescription = (TextView) view.findViewById(R.id.txt_description);
         txtDescription.setText(description);
-        txtSchoolName = (TextView) view.findViewById(R.id.txt_school_name);
+/*        txtSchoolName = (TextView) view.findViewById(R.id.txt_school_name);
         txtSchoolName.setText(school_name);
         txtSurveyorName = (TextView) view.findViewById(R.id.txt_surveyor_name);
-        txtSurveyorName.setText(name);
+        txtSurveyorName.setText(name);*/
         txtName = (TextView) view.findViewById(R.id.txt_name_summary);
         txtName.setText(name);
         txtCityNum = (TextView) view.findViewById(R.id.txt_no_of_cities);
